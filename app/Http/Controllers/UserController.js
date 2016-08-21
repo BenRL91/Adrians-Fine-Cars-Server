@@ -50,11 +50,15 @@ class UserController {
 
   * destroy(request, response) {
     try {
-      const user =  yield User.findBy("id", 1);
-      yield user.delete();
-      response.json({message: "Your account has been deleted."});
+      const user =  yield User.findBy("id", request.authUser.id);
+      if(user.attributes.id == request.param("id")){
+        yield user.delete();
+        response.json({message: "Your account has been deleted."});
+      }else {
+        response.json({message: "You are not authorized to delete that account."})
+      }
+
     }catch (error){
-      console.log("Catching")
       response.json({error: "Failed to delete the account"});
     }
 
