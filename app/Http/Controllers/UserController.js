@@ -26,6 +26,7 @@ class UserController {
     }
     try {
       const newUser  = yield User.create(input);
+      newUser.access_token = yield request.auth.generate(newUser);
       return response.json(newUser.toJSON());
     }catch (error) {
       return response.json({ error: error.message });
