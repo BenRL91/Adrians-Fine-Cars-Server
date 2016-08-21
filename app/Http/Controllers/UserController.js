@@ -23,7 +23,7 @@ class UserController {
     }
     const usernameExists = yield User.findBy("username", input.username);
     if(usernameExists){
-      return response.json({error: "This Uername already exists."});
+      return response.json({error: "This Username already exists."});
     }
     try {
       const newUser  = yield User.create(input);
@@ -55,7 +55,7 @@ class UserController {
       response.json({message: "Your account has been deleted."});
     }catch (error){
       console.log("Catching")
-      response.json({error: request.authUser});
+      response.json({error: "Failed to delete the account"});
     }
 
   }

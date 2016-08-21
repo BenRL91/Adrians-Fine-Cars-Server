@@ -18,6 +18,8 @@
 const Route = use('Route')
 
 Route.on('/').render('welcome')
+
+//User related Routes//
 Route.resources("users", "UserController")
 Route.post("/login", "UserController.login")
 Route.delete("/user/:id", "UserController.destroy").middleware("auth")

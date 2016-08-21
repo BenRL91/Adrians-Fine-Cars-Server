@@ -1,35 +1,134 @@
-# AdonisJs Application
+# Adrians Fine Cars
 
-This repo is the pre-configured project structure to be used for creating ambitious web servers using AdonisJs.
+### Table of Contents
+1. [User Model](#user-model)
+  * [Users Registration](#users-registration)
+  * [Users Login](#users-login)
 
-> Make sure to star the official [framework repo](https://github.com/adonisjs/adonis-framework) or [tweet on twitter](https://twitter.com/intent/tweet?url=http://adonisjs.com&text=I%20am%20using%20AdonisJs,%20a%20practical%20MVC%20framework%20for%20nodejs&hashtags=nodejs,adonisframework) :wave:
+  ## **Users**
 
-## Story
+  #### User Registration
 
-One day a :boy: wanted to write a web application to slowly turn it into a business and make some :moneybag: for better living. Being a Javascript lover, he decided to go with Node.js. 
+  #### POST request to /users
 
-Hosting Node.js applications are cheap and offers lots of mordern programming concepts to build realtime data rich applications.
+  *This route is present for the registration of new users.*
 
-He was so excited and full of energy to build this application and share it with the world. But soon his dreams started struggling with the amount of decisions he has to make, just to build an MVP of his idea. These decisions were not even related to the business and was about.
+  POST https://adrians-fine-cars-server.herokuapp.com/users/
 
-1. How should I structure my application?
-2. Why do I need to download 20 modules just to start an HTTP server, parse request body and upload files.
-3. How should I manage the authentication on website, and expose public API for others to interact with the data?
-4. What do I need to do to secure my application from web attacks and how to handle CORS?
-5. Why do I have ton of `require` statements everywhere?
-6. How the heck should I test my code? I am having hard time mocking dependencies.
-7. **WHY THE :fish:** there are no standards to write some code. Hell I am not going to write this application and going for a walk.
+  **Example Request:**
+
+  ```
+  {
+    "firstname": "John"
+    "lastname": "Doe",
+    "email": "jdoe@gmail.com",
+    "password": "secretWord",
+    "username": "johnUser"
+  }
+  ```
+
+  **Example Response:**
+
+  ```
+  {
+    firstname: "John",
+    lastname: "Doe",
+    email: "jdoe@gmail.com",
+    username: "johnUser",
+    created_at: "date created will be returned here",
+    updated_at: "date updated will be returned here",
+    access_token: "<hashed access token string will be returned here>"
+  }
+  ```
+
+  **Error Responses**
+
+  ### Email Already exists ###
+  ```
+    {
+      error: "This Email already exists"
+    }
+  ```
+
+  ### Username Already exists ###
+  ```
+    {
+      error: "This Username already exists"
+    }
+  ```  
+
+  #### Users Login
+
+  #### POST request to /login
+
+  *This route is present for loggin in users.*
+
+  POST https://adrians-fine-cars-server.herokuapp.com/login/
+
+  **Example Request:**
+
+  ```
+  {
+    "email: "jdoe@gmail.com",
+    "password": "secretWord"
+  }
+  ```
+
+  **Example Response:**
+
+  ```
+  {
+    firstname: "John",
+    lastname: "Doe",
+    email: "jdoe@gmail.com",
+    username: "johnUser",
+    created_at: "date created will be returned here",
+    updated_at: "date updated will be returned here",
+    access_token: "<hashed access token string will be returned here>"
+  }
+  ```
+
+  ```
+**Error Responses**
+
+### User does not exist ###
+```
+  {
+    error: "User does not exist"
+  }
+```
+
+### Password Entered was incorrect ###
+
+```
+  {
+    error: "Passowrd mismatch"
+  }
+```
+
+#### Delete User
+
+#### DELETE request to user/:id
+
+*This route is present for the deletion of a user.*
+
+DELETE https://adrians-fine-cars-server.herokuapp.com/user/:id
 
 
-## Not Anymore
+**Example Request:**
 
-This is so frustating. Node.js is a beautiful language but all of the above questions have never been answered together. We all love writing small concise modules but business are not created by downloading 20 modules.
+Request must be made with the header (including the "Bearer" in the value) with the user's access_token like this:
 
-Developers needs productive tools, so that they can focus on what matters, and not on downloading & finding the best ways to combine these small modules. 
+```
+{
+  "Authorization": "Bearer 203c7eb41a80cbb5398cc6b6db22ccc3"
+}
+```
 
-## AdonisJs
+**Example Reponse:**
 
-AdonisJs is a beautiful framework with pre-configured answers to all of your questions. We not only created this framework, but validated the features of framework with realtime problems and still improving every bit, so that you have to write less and structured code.
-
-This time a :boy: will write his ambitious application and will set the world on :fire:``. Don't hesitate to work on your ideas and we promise to improve the framework every :sunny: and :first_quarter_moon_with_face: and YESSSS do not forget to star us on [:octocat:](https://github.com/adonisjs/adonis-framework)
-
+```
+{
+  "message": "Your account has been deleted."
+}
+```
