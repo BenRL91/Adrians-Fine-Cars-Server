@@ -2,8 +2,9 @@
 
 ### Table of Contents
 1. [User Model](#user-model)
-  * [Users Registration](#users-registration)
-  * [Users Login](#users-login)
+  * [User Registration](#users-registration)
+  * [User Login](#users-login)
+  * [User Deletion](#users-delete)
 
   ## **Users**
 
@@ -41,7 +42,7 @@
   }
   ```
 
-  **Error Responses**
+  **Error Responses:**
 
   ### Email Already exists ###
   ```
@@ -88,47 +89,46 @@
   }
   ```
 
+  **Error Responses**
+
+  ####User does not exist
   ```
-**Error Responses**
+    {
+      error: "User does not exist"
+    }
+  ```
 
-### User does not exist ###
-```
+  ### Password Entered was incorrect
+
+  ```
+    {
+      error: "Passowrd mismatch"
+    }
+  ```
+
+  #### Delete User
+
+  #### DELETE request to user/:id
+
+  *This route is present for the deletion of a user.*
+
+  DELETE https://adrians-fine-cars-server.herokuapp.com/user/:id
+
+
+  **Example Request:**
+
+  Request must be made with the header (including the "Bearer" in the value) with the user's access_token like this:
+
+  ```
   {
-    error: "User does not exist"
+    "Authorization": "Bearer 203c7eb41a80cbb5398cc6b6db22ccc3"
   }
-```
+  ```
 
-### Password Entered was incorrect ###
+  **Example Response:**
 
-```
+  ```
   {
-    error: "Passowrd mismatch"
+    "message": "Your account has been deleted."
   }
-```
-
-#### Delete User
-
-#### DELETE request to user/:id
-
-*This route is present for the deletion of a user.*
-
-DELETE https://adrians-fine-cars-server.herokuapp.com/user/:id
-
-
-**Example Request:**
-
-Request must be made with the header (including the "Bearer" in the value) with the user's access_token like this:
-
-```
-{
-  "Authorization": "Bearer 203c7eb41a80cbb5398cc6b6db22ccc3"
-}
-```
-
-**Example Reponse:**
-
-```
-{
-  "message": "Your account has been deleted."
-}
-```
+  ```
