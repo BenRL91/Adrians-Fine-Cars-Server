@@ -19,3 +19,4 @@ const Route = use('Route')
 
 Route.on('/').render('welcome')
 Route.resources("users", "UserController")
+Route.post("/login", "UserController.login")
