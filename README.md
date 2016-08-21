@@ -2,9 +2,9 @@
 
 ### Table of Contents
 1. [User Model](#user-model)
-  * [User Registration](#users-registration)
-  * [User Login](#users-login)
-  * [User Deletion](#users-delete)
+  * [User Registration](#user-registration)
+  * [User Login](#user-login)
+  * [User Deletion](#user-delete)
 
   ## **Users**
 
@@ -58,7 +58,7 @@
     }
   ```  
 
-  #### Users Login
+  #### User Login
 
   #### POST request to /login
 
@@ -106,7 +106,7 @@
     }
   ```
 
-  #### Delete User
+  #### User Delete
 
   #### DELETE request to user/:id
 
