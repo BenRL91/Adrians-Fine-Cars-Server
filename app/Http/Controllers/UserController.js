@@ -6,7 +6,8 @@ const Hash = use("Hash")
 class UserController {
 
   * index(request, response) {
-    //
+    const users = yield User.all();
+    response.send(users.toJSON());
   }
 
   * create(request, response) {
@@ -34,7 +35,9 @@ class UserController {
   }
 
   * show(request, response) {
-    //
+    const input = request.param("id")
+    const user = yield User.findBy("id", input);
+    response.json(user.toJSON());
   }
 
   * edit(request, response) {
@@ -46,7 +49,15 @@ class UserController {
   }
 
   * destroy(request, response) {
-    //
+    try {
+      const user =  yield User.findBy("id", 1);
+      yield user.delete();
+      response.json({message: "Your account has been deleted."});
+    }catch (error){
+      console.log("Catching")
+      response.json({error: request.authUser});
+    }
+
   }
 
   * login (request, response) {
@@ -56,12 +67,15 @@ class UserController {
   try {
     // Find the user by email
     const user = yield User.findBy('email', input.email);
-    // Verify their passwords matches & if not, let em know
-    const verify = yield Hash.verify(input.password, user.password);
-    if (!verify) { throw new Error('Password mismatch') };
-    // Generate a token
-    user.access_token = yield request.auth.generate(user);
-    return response.json(user.toJSON());
+    if (user){
+      const verify = yield Hash.verify(input.password, user.password);
+      if (!verify) { throw new Error('Password mismatch') };
+      // Generate a token
+      user.access_token = yield request.auth.generate(user);
+      return response.json(user.toJSON());
+    }else {
+      throw new Error("User does not exist.")
+    }
   } catch (error) {
 
     return response.json({ error: error.message });
