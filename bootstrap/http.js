@@ -1,4 +1,4 @@
-'use strict'
+"use strict"
 
 /*
 |--------------------------------------------------------------------------
@@ -10,11 +10,11 @@
 |
 */
 
-const app = require('./app')
-const fold = require('adonis-fold')
-const path = require('path')
-const packageFile = path.join(__dirname, '../package.json')
-require('./extend')
+const app = require("./app")
+const fold = require("adonis-fold")
+const path = require("path")
+const packageFile = path.join(__dirname, "../package.json")
+require("./extend")
 
 module.exports = function (callback) {
   fold.Registrar
@@ -41,8 +41,8 @@ module.exports = function (callback) {
       | to setup autoloading.
       |
       */
-      const Helpers = use('Helpers')
-      const Env = use('Env')
+      const Helpers = use("Helpers")
+      const Env = use("Env")
       Helpers.load(packageFile, fold.Ioc)
 
       /*
@@ -54,7 +54,7 @@ module.exports = function (callback) {
       | events.js file.
       |
       */
-      require('./events')
+      require("./events")
 
       /*
       |--------------------------------------------------------------------------
@@ -65,8 +65,8 @@ module.exports = function (callback) {
       | require defined files for same.
       |
       */
-      use(Helpers.makeNameSpace('Http', 'kernel'))
-      use(Helpers.makeNameSpace('Http', 'routes'))
+      use(Helpers.makeNameSpace("Http", "kernel"))
+      use(Helpers.makeNameSpace("Http", "routes"))
 
       /*
       |--------------------------------------------------------------------------
@@ -76,9 +76,9 @@ module.exports = function (callback) {
       | We are all set to fire the Http Server and start receiving new requests.
       |
       */
-      const Server = use('Adonis/Src/Server')
-      Server.listen(Env.get('HOST'), Env.get('PORT'))
-      if (typeof (callback) === 'function') {
+      const Server = use("Adonis/Src/Server")
+      Server.listen(Env.get("HOST"), Env.get("PORT"))
+      if (typeof (callback) === "function") {
         callback()
       }
     })

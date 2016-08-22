@@ -1,6 +1,6 @@
-'use strict'
+"use strict"
 
-const Config = use('Config')
+const Config = use("Config")
 
 module.exports = {
 
@@ -17,7 +17,7 @@ module.exports = {
   | Available Serializers - Lucid, Database
   |
   */
-  authenticator: 'jwt',
+  authenticator: "jwt",
 
   /*
   |--------------------------------------------------------------------------
@@ -29,11 +29,11 @@ module.exports = {
   |
   */
   session: {
-    serializer: 'Lucid',
-    model: 'App/Model/User',
-    scheme: 'session',
-    uid: 'email',
-    password: 'password'
+    serializer: "Lucid",
+    model: "App/Model/User",
+    scheme: "session",
+    uid: "email",
+    password: "password"
   },
 
   /*
@@ -45,11 +45,11 @@ module.exports = {
   |
   */
   basic: {
-    serializer: 'Lucid',
-    model: 'App/Model/User',
-    scheme: 'basic',
-    uid: 'email',
-    password: 'password'
+    serializer: "Lucid",
+    model: "App/Model/User",
+    scheme: "basic",
+    uid: "email",
+    password: "password"
   },
 
   /*
@@ -62,10 +62,10 @@ module.exports = {
   |
   */
   jwt: {
-    serializer: 'Lucid',
-    model: 'App/Model/User',
-    scheme: 'jwt',
-    secret: Config.get('app.appKey')
+    serializer: "Lucid",
+    model: "App/Model/User",
+    scheme: "jwt",
+    secret: Config.get("app.appKey")
   },
 
   /*
@@ -81,9 +81,9 @@ module.exports = {
   |
   */
   api: {
-    serializer: 'Lucid',
-    model: 'App/Model/Token',
-    scheme: 'api'
+    serializer: "Lucid",
+    model: "App/Model/Token",
+    scheme: "api"
   }
 
 }

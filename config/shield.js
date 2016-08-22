@@ -1,4 +1,4 @@
-'use strict'
+"use strict"
 
 module.exports = {
   /*
@@ -11,7 +11,7 @@ module.exports = {
   | variety of options to choose from.
   | @examples
   | directives: {
-  |   defaultSrc: ['self', '@nonce', 'cdnjs.cloudflare.com']
+  |   defaultSrc: ["self", "@nonce", "cdnjs.cloudflare.com"]
   | }
   */
   csp: {
@@ -46,7 +46,7 @@ module.exports = {
   | @available options
   | DENY, SAMEORIGIN, ALLOW-FROM http://example.com
   */
-  xframe: 'DENY',
+  xframe: "DENY",
 
   /*
   |--------------------------------------------------------------------------
@@ -82,7 +82,7 @@ module.exports = {
   */
   csrf: {
     enable: false,
-    methods: ['POST', 'PUT', 'DELETE'],
+    methods: ["POST", "PUT", "DELETE"],
     filterUris: [],
     compareHostAndOrigin: true
   }

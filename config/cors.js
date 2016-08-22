@@ -1,4 +1,4 @@
-'use strict'
+"use strict"
 
 module.exports = {
   /*
@@ -10,7 +10,7 @@ module.exports = {
   | define multiple origins as string.
   |
   */
-  origin: '*',
+  origin: "*",
 
   /*
   |--------------------------------------------------------------------------
@@ -20,7 +20,7 @@ module.exports = {
   | Comma seperated HTTP methods to be allowed.
   |
   */
-  methods: 'GET, PUT, POST',
+  methods: "GET, PUT, POST",
 
   /*
   |--------------------------------------------------------------------------

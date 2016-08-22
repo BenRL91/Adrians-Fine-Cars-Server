@@ -1,7 +1,7 @@
-'use strict'
+"use strict"
 
-const Env = use('Env')
-const Helpers = use('Helpers')
+const Env = use("Env")
+const Helpers = use("Helpers")
 
 module.exports = {
 
@@ -14,7 +14,7 @@ module.exports = {
   | interacting with SQL databases.
   |
   */
-  connection: Env.get('DB_CONNECTION', 'pg'),
+  connection: Env.get("DB_CONNECTION", "pg"),
 
   /*
   |--------------------------------------------------------------------------
@@ -28,9 +28,9 @@ module.exports = {
   |
   */
   sqlite: {
-    client: 'sqlite3',
+    client: "sqlite3",
     connection: {
-      filename: Helpers.databasePath('development.sqlite')
+      filename: Helpers.databasePath("development.sqlite")
     },
     useNullAsDefault: true
   },
@@ -46,12 +46,12 @@ module.exports = {
   |
   */
   mysql: {
-    client: 'mysql',
+    client: "mysql",
     connection: {
-      host: Env.get('DB_HOST', 'localhost'),
-      user: Env.get('DB_USER', 'root'),
-      password: Env.get('DB_PASSWORD', ''),
-      database: Env.get('DB_DATABASE', 'adonis')
+      host: Env.get("DB_HOST", "localhost"),
+      user: Env.get("DB_USER", "root"),
+      password: Env.get("DB_PASSWORD", ""),
+      database: Env.get("DB_DATABASE", "adonis")
     }
   },
 
@@ -66,8 +66,8 @@ module.exports = {
   |
   */
   pg: {
-    client: 'pg',
-    connection: Env.get('DATABASE_URL')
+    client: "pg",
+    connection: Env.get("DATABASE_URL")
   }
 
 }

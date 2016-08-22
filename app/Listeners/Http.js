@@ -1,7 +1,7 @@
-'use strict'
+"use strict"
 
-const Env = use('Env')
-const Ouch = use('youch')
+const Env = use("Env")
+const Ouch = use("youch")
 const Http = exports = module.exports = {}
 
 /**
@@ -15,9 +15,9 @@ Http.handleError = function * (error, request, response) {
   /**
    * DEVELOPMENT REPORTER
    */
-  if (Env.get('NODE_ENV') === 'development') {
+  if (Env.get("NODE_ENV") === "development") {
     const ouch = new Ouch().pushHandler(
-      new Ouch.handlers.PrettyPageHandler('blue', null, 'sublime')
+      new Ouch.handlers.PrettyPageHandler("blue", null, "sublime")
     )
     ouch.handleException(error, request.request, response.response, (output) => {
       console.error(error.stack)
@@ -30,7 +30,7 @@ Http.handleError = function * (error, request, response) {
    */
   const status = error.status || 500
   console.error(error.stack)
-  yield response.status(status).sendView('errors/index', {error})
+  yield response.status(status).sendView("errors/index", {error})
 }
 
 /**

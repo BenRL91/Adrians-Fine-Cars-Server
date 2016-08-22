@@ -117,7 +117,7 @@
 
   **Example Request:**
 
-  Request must be made with the header (including the "Bearer" in the value) with the user's access_token like this:
+  Request must be made with the header (including the "Bearer" in the value) with the user"s access_token like this:
 
   ```
   {

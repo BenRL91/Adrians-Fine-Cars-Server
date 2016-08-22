@@ -1,4 +1,4 @@
-'use strict'
+"use strict"
 
 /*
 |--------------------------------------------------------------------------
@@ -12,10 +12,10 @@
 | Listeners are saved in app/Listeners directory.
 |
 | @example
-| Event.when('login', 'User.login')
+| Event.when("login", "User.login")
 |
 */
-const Event = use('Event')
+const Event = use("Event")
 
-Event.when('Http.error.*', 'Http.handleError')
-Event.when('Http.start', 'Http.onStart')
+Event.when("Http.error.*", "Http.handleError")
+Event.when("Http.start", "Http.onStart")
