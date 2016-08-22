@@ -1,4 +1,4 @@
-'use strict'
+"use strict"
 
 /*
 |--------------------------------------------------------------------------
@@ -10,12 +10,12 @@
 |
 */
 
-const app = require('./app')
-const fold = require('adonis-fold')
-const Ace = require('adonis-ace')
-const path = require('path')
-const packageFile = path.join(__dirname, '../package.json')
-require('./extend')
+const app = require("./app")
+const fold = require("adonis-fold")
+const Ace = require("adonis-ace")
+const path = require("path")
+const packageFile = path.join(__dirname, "../package.json")
+require("./extend")
 
 module.exports = function () {
   fold.Registrar
@@ -42,7 +42,7 @@ module.exports = function () {
       | to setup autoloading.
       |
       */
-      const Helpers = use('Helpers')
+      const Helpers = use("Helpers")
       Helpers.load(packageFile, fold.Ioc)
 
       /*
@@ -51,7 +51,7 @@ module.exports = function () {
       |--------------------------------------------------------------------------
       |
       | Here we register commands with the Ace kernel and invoke the currently
-      | executed command. It's so simple :)
+      | executed command. It"s so simple :)
       |
       */
       Ace.register(app.commands)

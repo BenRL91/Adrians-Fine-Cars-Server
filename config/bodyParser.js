@@ -1,4 +1,4 @@
-'use strict'
+"use strict"
 
 module.exports = {
   /*
@@ -9,7 +9,7 @@ module.exports = {
   | Data limit to be sent on a POST request.
   |
   */
-  limit: '1mb',
+  limit: "1mb",
 
   /*
   |--------------------------------------------------------------------------
@@ -53,7 +53,7 @@ module.exports = {
     | Delimiter to be used for parsing values. Example - a=b&b=c
     |
     */
-    delimiter: '&',
+    delimiter: "&",
 
     /*
     |--------------------------------------------------------------------------
@@ -61,7 +61,7 @@ module.exports = {
     |--------------------------------------------------------------------------
     |
     | Keeping this value to true will enable dot notation. For example
-    | 'a.b=c' will be parsed as {a: {b: 'c'}}
+    | "a.b=c" will be parsed as {a: {b: "c"}}
     |
     */
     allowDots: false
@@ -100,6 +100,6 @@ module.exports = {
     | the maximum limit.
     |
     */
-    maxSize: '2mb'
+    maxSize: "2mb"
   }
 }

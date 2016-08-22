@@ -1,6 +1,6 @@
-'use strict'
+"use strict"
 
-const Env = use('Env')
+const Env = use("Env")
 
 module.exports = {
 
@@ -13,7 +13,7 @@ module.exports = {
   | to encrypted cookies, sessions and other sensitive data.
   |
   */
-  appKey: Env.get('APP_KEY'),
+  appKey: Env.get("APP_KEY"),
 
   encryption: {
     /*
@@ -28,7 +28,7 @@ module.exports = {
     | aes-128-cbc requires 16 characters long string
     |
     */
-    algorithm: 'aes-256-cbc'
+    algorithm: "aes-256-cbc"
   },
 
   http: {
@@ -93,7 +93,7 @@ module.exports = {
     | in request url.
     |
     */
-    jsonpCallback: 'callback'
+    jsonpCallback: "callback"
   },
 
   views: {
@@ -106,7 +106,7 @@ module.exports = {
     | production to optimize view loading time.
     |
     */
-    cache: Env.get('CACHE_VIEWS', true),
+    cache: Env.get("CACHE_VIEWS", true),
 
     /*
     |--------------------------------------------------------------------------
@@ -134,7 +134,7 @@ module.exports = {
     | ignore, deny, allow
     |
     */
-    dotfiles: 'ignore',
+    dotfiles: "ignore",
 
     /*
     |--------------------------------------------------------------------------
@@ -153,7 +153,7 @@ module.exports = {
     |
     | Set file extension fallbacks. When set, if a file is not found, the given
     | extensions will be added to the file name and search for. The first
-    | that exists will be served. Example: ['html', 'htm'].
+    | that exists will be served. Example: ["html", "htm"].
     |
     */
     extensions: false

@@ -1,17 +1,13 @@
-'use strict'
+"use strict"
 
 const User = use("App/Model/User");
-const Hash = use("Hash")
+const Hash = use("Hash");
 
 class UserController {
 
   * index(request, response) {
     const users = yield User.all();
-    response.send(users.toJSON());
-  }
-
-  * create(request, response) {
-    //
+    return response.send(users.toJSON());
   }
 
   * store(request, response) {
@@ -35,9 +31,46 @@ class UserController {
   }
 
   * show(request, response) {
-    const input = request.param("id")
+    const input = request.param("id");
     const user = yield User.findBy("id", input);
     response.json(user.toJSON());
+  }
+
+  * destroy(request, response) {
+    try {
+      const user =  yield User.findBy("id", request.authUser.id);
+      if(user.attributes.id == request.param("id")){
+        yield user.delete();
+        return response.json({message: "Your account has been deleted."});
+      }else {
+        return response.json({message: "You are not authorized to delete that account."});
+      }
+
+    }catch (error){
+      return response.json({error: "Failed to delete the account"});
+    }
+
+  }
+
+  * login (request, response) {
+    const input = request.only("email", "password");
+    try {
+      const user = yield User.findBy("email", input.email);
+      if (user){
+        const verify = yield Hash.verify(input.password, user.password);
+        if (!verify) { throw new Error("Password mismatch") };
+        user.access_token = yield request.auth.generate(user);
+        return response.json(user.toJSON());
+      }else {
+        throw new Error("User does not exist.");
+      }
+    } catch (error) {
+      return response.json({ error: error.message });
+    }
+  }
+
+  * create(request, response) {
+    //
   }
 
   * edit(request, response) {
@@ -48,45 +81,6 @@ class UserController {
     //
   }
 
-  * destroy(request, response) {
-    try {
-      const user =  yield User.findBy("id", request.authUser.id);
-      if(user.attributes.id == request.param("id")){
-        yield user.delete();
-        response.json({message: "Your account has been deleted."});
-      }else {
-        response.json({message: "You are not authorized to delete that account."})
-      }
-
-    }catch (error){
-      response.json({error: "Failed to delete the account"});
-    }
-
-  }
-
-  * login (request, response) {
-  // Get the input from the user
-  const input = request.only('email', 'password');
-
-  try {
-    // Find the user by email
-    const user = yield User.findBy('email', input.email);
-    if (user){
-      const verify = yield Hash.verify(input.password, user.password);
-      if (!verify) { throw new Error('Password mismatch') };
-      // Generate a token
-      user.access_token = yield request.auth.generate(user);
-      return response.json(user.toJSON());
-    }else {
-      throw new Error("User does not exist.")
-    }
-  } catch (error) {
-
-    return response.json({ error: error.message });
-  }
 }
 
-
-}
-
-module.exports = UserController
+module.exports = UserController;

@@ -1,4 +1,4 @@
-'use strict'
+"use strict"
 
 /*
 |--------------------------------------------------------------------------
@@ -10,14 +10,14 @@
 | clean.
 |
 | @example
-| Route.get('/user', 'UserController.index')
-| Route.post('/user', 'UserController.store')
-| Route.resource('user', 'UserController')
+| Route.get("/user", "UserController.index")
+| Route.post("/user", "UserController.store")
+| Route.resource("user", "UserController")
 */
 
-const Route = use('Route')
+const Route = use("Route")
 
-Route.on('/').render('welcome')
+Route.on("/").render("welcome")
 
 //User related Routes//
 Route.resources("users", "UserController")

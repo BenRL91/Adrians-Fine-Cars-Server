@@ -1,6 +1,6 @@
-'use strict'
+"use strict"
 
-const Ioc = require('adonis-fold').Ioc
+const Ioc = require("adonis-fold").Ioc
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +16,7 @@ const Ioc = require('adonis-fold').Ioc
 | registered.
 |
 | @example
-| Ioc.extend('Adonis/Src/Session', 'redis', function (app) {
+| Ioc.extend("Adonis/Src/Session", "redis", function (app) {
 |   // your redis driver implementation
 | })
 |

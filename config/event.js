@@ -1,4 +1,4 @@
-'use strict'
+"use strict"
 
 module.exports = {
 
@@ -18,7 +18,7 @@ module.exports = {
   | Handle New Listener
   |--------------------------------------------------------------------------
   |
-  | Whether or not to emit new listener event, it's set to false by default.
+  | Whether or not to emit new listener event, it"s set to false by default.
   |
   */
   newListener: false,

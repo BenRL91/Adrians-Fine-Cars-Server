@@ -1,6 +1,6 @@
-'use strict'
+"use strict"
 
-const Env = use('Env')
+const Env = use("Env")
 
 module.exports = {
   /*
@@ -14,7 +14,7 @@ module.exports = {
   | Available Options are :-
   | cookie or file
   */
-  driver: Env.get('SESSION_DRIVER', 'cookie'),
+  driver: Env.get("SESSION_DRIVER", "cookie"),
 
   /*
   |--------------------------------------------------------------------------
@@ -25,7 +25,7 @@ module.exports = {
   | Cookie name is required even if you are not using cookie driver.
   |
   */
-  cookie: 'adonis-session',
+  cookie: "adonis-session",
 
   /*
   |--------------------------------------------------------------------------
@@ -69,7 +69,7 @@ module.exports = {
   | it anywhere on your website. Set it to /
   |
   */
-  path: '/',
+  path: "/",
 
   /*
   |--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ module.exports = {
   |
   */
   file: {
-    directory: 'sessions'
+    directory: "sessions"
   }
 
 }
