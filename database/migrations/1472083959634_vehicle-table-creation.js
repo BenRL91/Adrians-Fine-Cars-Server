@@ -17,7 +17,7 @@ class VehicleTableCreationSchema extends Schema {
       table.string("stock").notNullable()
       table.integer("citympg").notNullable()
       table.integer("hwympg").notNullable()
-      table.integer("warranty").notNullable()
+      table.string("warranty").notNullable()
       table.integer("price").notNullable()
       table.boolean("sold").notNullable().defaultTo(false)
       table.integer("user_id").unsigned().references("id").inTable("users")
