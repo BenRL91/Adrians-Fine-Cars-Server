@@ -24,7 +24,8 @@ class VehicleController {
   }
 
   * show(request, response) {
-    //
+    const vehicle = yield Vehicle.findBy("id", request.param("id"));
+    respose.json(vehicle.toJSON());
   }
 
   * edit(request, response) {
