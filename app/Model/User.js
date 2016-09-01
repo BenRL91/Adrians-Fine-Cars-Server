@@ -9,11 +9,11 @@ class User extends Lucid {
     }
 
     vehicles() {
-      return this.hasMany("App/Model/Vehicle")
+      return this.hasMany("App/Model/Vehicle");
     }
 
     apiTokens () {
-      return this.hasMany("App/Model/Token")
+      return this.hasMany("App/Model/Token");
     }
 
 }
