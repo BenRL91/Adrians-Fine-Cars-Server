@@ -14,7 +14,6 @@
 3. [Photo Model](#photo-model)
   * [Photo Creation](#photo-creation)
   * [Photo Show For Vehicle](#photo-show-for-vehicle)
-  // * [Photo Edit](#photo-edit)
   * [Photo Delete](#photo-delete)
 
   ## **Users**
@@ -123,7 +122,7 @@
 
   *This route is present for the deletion of a user.*
 
-  DELETE https://adrians-fine-cars-server.herokuapp.com/user/:id
+  DELETE https://adrians-fine-cars-server.herokuapp.com/user/1
 
 
   **Example Request:**
@@ -204,9 +203,9 @@
 
   #### GET request to /vehicles
 
-  *This route is present for the registration of new users.*
+  *This route is present to show an index of all vehicles in the database.*
 
-  POST https://adrians-fine-cars-server.herokuapp.com/users/
+  GET https://adrians-fine-cars-server.herokuapp.com/vehicles/
 
   **Example Request:**
 

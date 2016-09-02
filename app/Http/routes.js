@@ -34,3 +34,5 @@ Route.put("/vehicles/:id", "VehicleController.update").middleware("auth")
 //Photo related routes//
 Route.get("/photos/:vehicle_id", "PhotoController.show").middleware("auth")
 Route.post("/photos/:vehicle_id", "PhotoController.store").middleware("auth")
+Route.put("/photos/:id", "PhotoController.update").middleware("auth")
+Route.delete("/photos/:id", "PhotoController.destroy").middleware("auth")
