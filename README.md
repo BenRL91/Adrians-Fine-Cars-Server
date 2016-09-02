@@ -14,6 +14,7 @@
 3. [Photo Model](#photo-model)
   * [Photo Creation](#photo-creation)
   * [Photo Show For Vehicle](#photo-show-for-vehicle)
+  * [Photo Edit](#photo-edit)
   * [Photo Delete](#photo-delete)
 
   ## **Users**
@@ -480,6 +481,43 @@
   }
 ]
   ```
+
+  #### Photo Edit
+
+  #### PUT request to /photos/:id
+
+  *This route is present for the updating a photo.*
+  Currently you may only edit the photo_url property
+
+  PUT https://adrians-fine-cars-server.herokuapp.com/photos/2
+
+  **Example Request:**
+
+  Request must be made with the header (including the "Bearer" in the value) with the user"s access_token like this:
+
+  ```
+  {
+    "Authorization": "Bearer 203c7eb41a80cbb5398cc6b6db22ccc3"
+  }
+  ```
+
+  ```
+  {
+    "photo_url": "http://robotmafia.com/wp-content/uploads/2011/04/mega_robot_rampage.jpg"
+  }
+  ``` 
+
+  **Example Response:**
+
+  ```
+  {
+    "photo_url": "http://robotmafia.com/wp-content/uploads/2011/04/mega_robot_rampage.jpg",
+    "vehicle_id": 2,
+    "id": 1,
+    "created_at": "2016-09-01 15:36:32",
+    "updated_at": "2016-09-01 15:36:32"
+  }
+  ```   
 
   #### Photo Delete
 
