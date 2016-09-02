@@ -6,7 +6,7 @@
   * [User Login](#user-login)
   * [User Deletion](#user-delete)
 2. [Vehicle Model](#vehicle-model)
-  * [Vehicle Creation](#vehicle-creaton)
+  * [Vehicle Creation](#vehicle-creation)
   * [Vehicle Index](#vehicle-index)
   * [Vehicle Show One](#vehicle-show-one)
   * [Vehicle Edit](#vehicle-edit)
