@@ -14,10 +14,11 @@ class PhotoController {
   }
 
   * store(request, response) {
-    const input = request.only("photo_url");
-    input.vehicle_id = request.param("vehicle_id");
-    const newPhoto = yield Photo.create(input);
-    response.json(newPhoto.toJSON());
+    const input = request.only("photos");
+    const vehicleID = request.param("vehicle_id");
+    input.photos.forEach(photo => photo.vehicle_id = vehicleID);
+    const createdPhotos = yield Photo.createMany(input.photos);
+    response.json(createdPhotos);
   }
 
    //Get all images for a listing//
