@@ -284,7 +284,7 @@
 
   #### Vehicle Show One
 
-  #### GET request to /vehicles/:id 
+  #### GET request to /vehicles/:id
 
   *This route is present for showing a single vehicle listing.*
 
@@ -418,21 +418,46 @@
     "Authorization": "Bearer 203c7eb41a80cbb5398cc6b6db22ccc3"
   }
   ```
+  
+  Must send an array of objects with "photo_url" as the key of the objects.
+
   ```
+  [
   {
-    photo_url: "http://robotmafia.com/wp-content/uploads/2011/04/mega_robot_rampage.jpg"
+    photo_url: "http://placecage.com/300/300"
+  },
+  {
+    photo_url: "http://placekitten.com/300/300"
+  },
+  {
+    photo_url: "http://fillmurray.com/300/300"
   }
+  ]
   ```
 
   **Example Response:**
 
   ```
 {
-  "photo_url": "http://robotmafia.com/wp-content/uploads/2011/04/mega_robot_rampage.jpg",
+  "photo_url": "http://placecage.com/300/300",
   "vehicle_id": "2",
   "created_at": "2016-09-01 15:38:07",
   "updated_at": "2016-09-01 15:38:07",
   "id": 2
+},
+{
+  "photo_url": "http://placekitten.com/300/300",
+  "vehicle_id": "2",
+  "created_at": "2016-09-01 15:38:07",
+  "updated_at": "2016-09-01 15:38:07",
+  "id": 3
+},
+{
+  "photo_url": "http://fillmurray.com/300/300",
+  "vehicle_id": "2",
+  "created_at": "2016-09-01 15:38:07",
+  "updated_at": "2016-09-01 15:38:07",
+  "id": 4
 }
   ```
 
@@ -505,7 +530,7 @@
   {
     "photo_url": "http://robotmafia.com/wp-content/uploads/2011/04/mega_robot_rampage.jpg"
   }
-  ``` 
+  ```
 
   **Example Response:**
 
