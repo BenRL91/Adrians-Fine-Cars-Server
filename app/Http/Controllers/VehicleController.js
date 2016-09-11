@@ -9,7 +9,17 @@ class VehicleController {
 
   * index(request, response) {
     const allVehicles = yield Vehicle.all();
-    response.json(allVehicles.toJSON());
+    const allPhotos = yield Photo.all();
+    const jsonPhotos = allPhotos.toJSON();
+    const vehiclesWithPhotos = allVehicles.toJSON().map(function(vehicle){
+      const vehiclePhotos = jsonPhotos.filter(function(photo){
+        return vehicle.id === photo.vehicle_id;
+      })
+      console.log()
+      vehicle.photos = vehiclePhotos;
+      return vehicle;
+    })
+    response.json(vehiclesWithPhotos);
   }
 
   * create(request, response) {
