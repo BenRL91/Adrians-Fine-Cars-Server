@@ -15,9 +15,6 @@ class PhotoController {
 
   * store(request, response) {
     const input = request.only("photos");
-    console.log(request);
-    console.log("Whole thing", request.all());
-    console.log("Just photos", input);
     const vehicleID = request.param("vehicle_id");
     input.photos.forEach(photo => photo.vehicle_id = vehicleID);
     const createdPhotos = yield Photo.createMany(input.photos);

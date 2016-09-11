@@ -3,6 +3,7 @@
 const _ = require("lodash");
 
 const Vehicle = use("App/Model/Vehicle");
+const Photo = use("App/Model/Photo");
 
 class VehicleController {
 
@@ -24,8 +25,14 @@ class VehicleController {
   }
 
   * show(request, response) {
-    const vehicle = yield Vehicle.findBy("id", request.param("id"));
-    response.json(vehicle.toJSON());
+    const id = request.param("id");
+    const vehicle = yield Vehicle.findBy("id", id);
+    const photos = yield Photo.query().where("vehicle_id", id);
+    const listing = {
+      vehicle: vehicle,
+      photos: photos
+    }
+    response.json(listing);
   }
 
   * edit(request, response) {
@@ -51,7 +58,7 @@ class VehicleController {
     const user = request.authUser;
     const id = request.param("id");
     const vehicleMarkedForDeletion = yield Vehicle.findBy("id", id);
-
+    const photos = yield Photo.query().where("vehicle_id", id);
     yield vehicleMarkedForDeletion.delete();
     response.json({message: "This listing has been deleted."})
   }
