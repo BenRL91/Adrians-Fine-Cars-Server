@@ -58,7 +58,8 @@ class VehicleController {
     const user = request.authUser;
     const id = request.param("id");
     const vehicleMarkedForDeletion = yield Vehicle.findBy("id", id);
-    const photos = yield Photo.query().where("vehicle_id", id);
+    const photos = yield Photo.query().where("vehicle_id", id).del();
+    console.log("line 62", photos);
     yield vehicleMarkedForDeletion.delete();
     response.json({message: "This listing has been deleted."})
   }
