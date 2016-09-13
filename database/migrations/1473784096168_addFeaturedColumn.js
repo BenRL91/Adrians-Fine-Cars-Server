@@ -6,7 +6,7 @@ class AddFeaturedColumnSchema extends Schema {
 
   up () {
     this.table('vehicles', (table) => {
-      table.addColumn("featured").notNullable().defaultTo(false);
+      table.boolean("featured").notNullable().defaultTo(false);
     })
   }
 
