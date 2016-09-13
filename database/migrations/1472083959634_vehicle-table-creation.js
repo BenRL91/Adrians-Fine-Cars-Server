@@ -20,6 +20,7 @@ class VehicleTableCreationSchema extends Schema {
       table.string("warranty").notNullable()
       table.integer("price").notNullable()
       table.boolean("sold").notNullable().defaultTo(false)
+      // table.boolean("featured").notNullable().defaultTo(false);
       table.integer("user_id").unsigned().references("id").inTable("users")
       table.increments()
       table.timestamps()
@@ -28,6 +29,7 @@ class VehicleTableCreationSchema extends Schema {
 
   down () {
     this.drop("vehicles")
+    this.drop("photos");
   }
 
 }

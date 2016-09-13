@@ -2,7 +2,7 @@
 
 const Schema = use('Schema')
 
-class PhotoTableCreationSchema extends Schema {
+class PhotoTableCreateSchema extends Schema {
 
   up () {
     this.create('photos', (table) => {
@@ -14,11 +14,9 @@ class PhotoTableCreationSchema extends Schema {
   }
 
   down () {
-    this.table('photos', (table) => {
-      // opposite of up goes here
-    })
+    this.drop("photos");
   }
 
 }
 
-module.exports = PhotoTableCreationSchema
+module.exports = PhotoTableCreateSchema
